@@ -16,6 +16,7 @@ import javax.inject.Inject
  */
 class NoModuleActivity : BaseActivity() {
 
+    //通过注解的方式拿到P层对象
     @Inject
     lateinit var noModulePresenter: NoModulePresenter
 
@@ -23,6 +24,7 @@ class NoModuleActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_no_module)
 
+        //如果P层不需要拿到V层引用，那么这两种方式都可行
         DaggerNoModuleComponent.builder().build().inject(this)
 //        DaggerNoModuleComponent.create().inject(this)
 
@@ -30,7 +32,9 @@ class NoModuleActivity : BaseActivity() {
     }
 
     private fun setClick() {
-        btnGoToNewActivity.setOnClickListener { startActivity(Intent(this, MainActivity::class.java)) }
+        btnGoToNewActivity.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
 
         btnUsePresenter.setOnClickListener {
             //点击按钮，调用presenter获取数据

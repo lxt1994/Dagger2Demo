@@ -20,17 +20,23 @@ class TraditionActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tradition)
 
+        //通过构造拿到P层引用
         traditionPresenter = TraditionPresenter(this)
 
         setClick()
     }
 
     private fun setClick() {
+        //调用P层方法获取数据并显示
         btnTradition.setOnClickListener { show(traditionPresenter.getData()) }
 
+        //调用P层方法获取数据并在P层使用V层显示
         btnPresenterUseView.setOnClickListener { traditionPresenter.haveView() }
 
-        btnGoToNoModuleActivity.setOnClickListener { startActivity(Intent(this, NoModuleActivity::class.java)) }
+        //进入新的界面
+        btnGoToNoModuleActivity.setOnClickListener {
+            startActivity(Intent(this, NoModuleActivity::class.java))
+        }
     }
 
     fun showData() {
