@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnTradition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传统new的方式" />
+
+    <Button
+        android:id="@+id/btnPresenterUseView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="P层用V层" />
+
+    <Button
+        android:id="@+id/btnGoToNoModuleActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="去新的界面" />
+
+</LinearLayout>
